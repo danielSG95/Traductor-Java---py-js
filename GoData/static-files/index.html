@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traductor</title>
+
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./Js/codemirror/lib/codemirror.css">
+  <link rel="stylesheet" href="./Js/codemirror/theme/darcula.css">
+
+  <style>
+    a label {
+      cursor: pointer;
+    }
+
+    a:not([href]) {
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!--  Navbar -->
+  <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+    <img src="img/fiusac.jpeg" alt="Logo" width="50px" height="50px">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Editor
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" onclick="openFile();">Abrir Archivo</a>
+            <a class="dropdown-item" onclick="guardar();">Guardar</a>
+            <a class="dropdown-item" onclick="clearEditor();">Limpiar</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" onclick="analizar();">Traducir</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Reportes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="reporte.html?a=j">Reporte de Tokens Js</a>
+            <a class="dropdown-item" href="reporte.html?a=p">Reporte de Tokens Py</a>
+            <a class="dropdown-item" onclick="arbolJs()">Reporte de Arbol Js</a>
+            <a class="dropdown-item" onclick="arbolpy()">Reporte de Arbol Py</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Descargar Traduccion
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" onclick="traduccionjs()">Traduccion JavaScript</a>
+            <a class="dropdown-item" onclick="traduccionpy()">Traduccion Python</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+    <input type="file" id="uploadFile" style="display:none" onchange="onfileChange(event)" />
+    <div class="alert alert-success text-center" id="alert_success" hidden></div>
+    <div class="row pt-2">
+      <div class="col">
+        <div class="text-center">
+          <h3>Java Editor</h3>
+        </div>
+
+        <textarea name="cm" id="txtarea_cm" class="code_mirror"></textarea>
+      </div>
+
+      <div class="col">
+        <h3 class="text-center">JavaScript Console</h3>
+        <textarea name="" id="jsconsole"></textarea>
+
+        <h3 class="text-center">Python Console</h3>
+        <textarea id="pyconsole"></textarea>
+      </div>
+
+    </div>
+
+  </main>
+
+
+
+
+  <footer>
+    <p class="text text-center"><strong>Oscar Augusto Perez Tzunun 201213498</strong></p>
+  </footer>
+
+
+  <script src="./Js/jquery-3.5.1.js"></script>
+  <script src="./Js/codemirror/lib/codemirror.js"></script>
+  <script src="./Js/codemirror/mode/clike/clike.js"></script>
+  <script src="./Js/index.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
